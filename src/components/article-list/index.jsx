@@ -6,19 +6,24 @@ import {
   Image,
 } from 'drupal-canvas';
 import { usePageContext, useJsonApiClient } from 'drupal-canvas/react';
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params';
 import useSWR from 'swr';
 
 export default function ArticleList({ resourceType, image, className }) {
   const page = usePageContext();
   const client = useJsonApiClient();
-  const clientReady = Boolean(client);
   const configured = /^node--[a-z][a-z0-9_]*$/.test(resourceType || '');
-  const queryString = new URLSearchParams({
-    ['fields[' + resourceType + ']']:
-      'title,created,body,path,drupal_internal__nid',
-    sort: '-created',
-    'page[limit]': '3',
-  }).toString();
+  const queryString = new DrupalJsonApiParams()
+    .addFields(resourceType, [
+      'title',
+      'created',
+      'body',
+      'path',
+      'drupal_internal__nid',
+    ])
+    .addSort('created', 'DESC')
+    .addPageLimit(3)
+    .getQueryString();
   const { data, error, isLoading } = useSWR(
     configured && client ? [client, resourceType, queryString] : null,
     ([activeClient, type, query]) =>
@@ -58,7 +63,7 @@ export default function ArticleList({ resourceType, image, className }) {
           Configure the node JSON:API resource type containing title, created,
           body, and path fields.
         </p>
-      ) : !clientReady ? (
+      ) : !client ? (
         <p>JSON:API client unavailable.</p>
       ) : error ? (
         <p role="alert">

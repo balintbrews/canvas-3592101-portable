@@ -20,7 +20,6 @@ function renderMenu(items) {
 export default function PageFrame({ menuName, content, className }) {
   const site = useSiteContext();
   const client = useJsonApiClient();
-  const clientReady = Boolean(client);
   const { data, error, isLoading } = useSWR(
     menuName && client ? [client, 'menu_items', menuName] : null,
     ([activeClient, type, id]) => activeClient.getResource(type, id),
@@ -57,7 +56,7 @@ export default function PageFrame({ menuName, content, className }) {
         <nav aria-label="Site menu">
           {!menuName ? (
             <p>Configure a menu ID to request live menu items.</p>
-          ) : !clientReady ? (
+          ) : !client ? (
             <p>JSON:API client unavailable.</p>
           ) : error ? (
             <p role="alert">
