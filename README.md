@@ -4,9 +4,8 @@ Install the released baseline with Node 22.19+ (22.x) or Node 24.5+:
 npm ci
 ```
 
-Until released, portable APIs and repaired Workbench site metadata require the
-MR packages below in a disposable copy. Set `CANVAS_MR` to a separate Canvas
-checkout at `025c6a7af034447dd0b2941d2196c05aa7f6a117`:
+Portable APIs require the MR packages until released. Install them in a
+disposable copy. Set `CANVAS_MR` to a separate Canvas checkout at `025c6a7af034447dd0b2941d2196c05aa7f6a117`:
 
 ```sh
 set -e
