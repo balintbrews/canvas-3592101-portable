@@ -1,10 +1,4 @@
-import {
-  canvasFormatDateTime,
-  cn,
-  FormattedText,
-  getNodePath,
-  Image,
-} from 'drupal-canvas';
+import { cn, FormattedText, getNodePath, Image } from 'drupal-canvas';
 import { usePageContext, useJsonApiClient } from 'drupal-canvas/react';
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params';
 import useSWR from 'swr';
@@ -91,9 +85,7 @@ export default function ArticleList({ resourceType, image, className }) {
                   {article.title}
                 </a>
               </h3>
-              <time dateTime={article.created}>
-                {canvasFormatDateTime(article.created)}
-              </time>
+              <time dateTime={article.created}>{article.created}</time>
               <FormattedText>{article.body.processed}</FormattedText>
             </li>
           ))}
