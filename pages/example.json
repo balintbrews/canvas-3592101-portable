@@ -1,0 +1,27 @@
+{
+  "title": "Component API example",
+  "path": "/component-api-example",
+  "elements": {
+    "frame": {
+      "type": "js.page-frame",
+      "props": {
+        "menuName": "main"
+      },
+      "slots": {
+        "content": ["articles"]
+      }
+    },
+    "articles": {
+      "type": "js.article-list",
+      "props": {
+        "resourceType": "node--article",
+        "image": {
+          "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAJUlEQVR4nGO48/AZHIXmNcERLnGGQaiBGEXI4oNRwyAM1pEYDwC0Y/QQJYKbPAAAAABJRU5ErkJggg==",
+          "alt": "Authored checkerboard image, not a Drupal API response",
+          "width": 16,
+          "height": 16
+        }
+      }
+    }
+  }
+}

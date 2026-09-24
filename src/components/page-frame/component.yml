@@ -1,0 +1,13 @@
+name: Page frame
+machineName: page-frame
+status: true
+required: []
+props:
+  properties:
+    menuName:
+      title: Menu name
+      type: string
+      examples: [main]
+slots:
+  content:
+    title: Content

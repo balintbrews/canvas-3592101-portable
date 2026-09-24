@@ -1,0 +1,15 @@
+name: Article list
+machineName: article-list
+status: true
+required: []
+props:
+  properties:
+    resourceType:
+      title: Resource type
+      type: string
+      examples: [node--article]
+    image:
+      title: Image
+      type: object
+      $ref: json-schema-definitions://canvas.module/image
+slots: {}

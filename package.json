@@ -1,0 +1,29 @@
+{
+  "name": "canvas-3592101-portable",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.19.0 <23 || >=24.5.0"
+  },
+  "scripts": {
+    "dev": "canvas-workbench",
+    "code:fix": "prettier . --write && eslint . --fix",
+    "code:check": "prettier . --check && eslint .",
+    "validate": "canvas validate"
+  },
+  "dependencies": {
+    "drupal-canvas": "0.6.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "swr": "2.5.1"
+  },
+  "devDependencies": {
+    "@drupal-canvas/cli": "0.25.1",
+    "@drupal-canvas/eslint-config": "0.10.0",
+    "@drupal-canvas/workbench": "0.12.0",
+    "eslint": "9.39.5",
+    "prettier": "3.9.9",
+    "tailwindcss": "4.3.3"
+  }
+}
